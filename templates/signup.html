@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<p><a href="{% url 'patient_signup' %}">Sign Up as patient</a></p>
+<p><a href="{% url 'doctor_signup' %}">Sign Up as doctor</a></p>
+{% endblock content %}

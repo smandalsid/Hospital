@@ -1,0 +1,57 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://source.unsplash.com/701-FJcjLAQ/1400x400" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>We are there for you</h5>
+                <p>We strive to look after you 24/7, and we proudly dedicate our time to your needs.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://source.unsplash.com/5zp0jym2w9M/1400x400" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>World class doctors</h5>
+                <p>You can trust on us to cure you to your fullest.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://source.unsplash.com/cEzMOp5FtV4/1400x400" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>we are there for you</h5>
+                <p>Waiting for you tochoose us for your need.</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% if user.is_authenticated %}
+Hi {{ user.username }}!
+<p><a href="{% url 'logout' %}">LogOut</a></p>
+{% else %}
+<p>You are not logged in</p>
+<p><a href="{% url 'login' %}">LogIn</a></p>
+<p><a href="{% url 'signup' %}">SignUp</a></p>
+{% endif %}
+{% endblock content %}
